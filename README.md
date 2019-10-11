@@ -27,25 +27,25 @@ python data_process.py
 python data_process.py
 ```
 # 模型训练
-##如果没有加载上次训练的权重.pth文件，就会创建一个但钱时间下的网络权重文件夹，保存在code文件夹
+## 如果没有加载上次训练的权重.pth文件，就会创建一个但钱时间下的网络权重文件夹，保存在code文件夹
 ```shell
 python main.py train #从零开始训练
 ```
-##如果要加载上次训练的权重：
+如果要加载上次训练的权重：
 ```shell
 python main.py train --ckpt ./ckpt/path #加载训练好的权重进行训练
 ```
-#模型验证
-##加载权重进行验证集测试：
+# 模型验证
+## 加载权重进行验证集测试：
 ```shell
 python main.py val --ckpt ./ckpt/path #加载训练好的权重进行训练
 ```
 # 模型测试
-模型测试，在submit文件夹下生成提交结果
+## 模型测试，在submit文件夹下生成提交结果
 ```shell
 python main.py test --ckpt ./ckpt/path #加载预训练权重进行测试
 ```
-#提交结果生成（复现提交B榜的最优结果）
+## 提交结果生成（复现提交B榜的最优结果）
 ```shell
 python main.py test --ckpt ./ckpt/ResNeXt29_4x64d_201910092212/best_w.pth #加载最优权重生成预测结果
 ```
