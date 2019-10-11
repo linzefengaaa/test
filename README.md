@@ -10,7 +10,7 @@ ecg_ResNext_pytorch-master
 ***
 **GPU参数**:*cuda版本:10.0,cudnn版本：7.6.0*
 ***
-**网络定义：***在code文件夹下的models文件夹定义了使用的ResNext网络，不使用预训练的权重，定义的ResNext网络总共有4个，可以选择调用，这里经过多次训练得到ResNext4*64d效果最为理想*
+**网络定义：***在code文件夹下的models文件夹定义了使用的ResNext网络，从头训练权重，定义的ResNext网络总共有4个，可以选择调用，这里经过多次训练得到ResNext4*64d效果最为理想*
 ***
 **大致思路：采用采样将8个导联的数据转化为二维1*8*4096的像素格式，将ResNext卷积的2d改用1d卷积，使用block构建深度神经网络，在A榜预测时将给定的数据集按9：1划分为训练集和验证集，保存出最优的验证集下的权重，最后将给出的测试数据用刚刚的权重喂进模型，生成预测结果**
 ***
@@ -27,7 +27,7 @@ python data_process.py
 python data_process.py
 ```
 # 模型训练
-## 如果没有加载上次训练的权重.pth文件，就会创建一个但钱时间下的网络权重文件夹，保存在code文件夹
+## 如果没有加载上次训练的权重.pth文件，就会创建一个当前时间下的网络权重文件夹，保存在code文件夹
 ```shell
 python main.py train #从零开始训练
 ```
@@ -59,3 +59,4 @@ python main.py test --ckpt ./ckpt/ResNeXt29_4x64d_201910092212/best_w.pth #加�
 https://www.nature.com/articles/s41591-018-0268-3
 参考模型构建：
 https://blog.csdn.net/winycg/article/details/89077738
+### 有问题请邮件至：2060428268@qq.com
